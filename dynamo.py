@@ -16,12 +16,12 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('MapiSettings')
 
 
-response = table.get_item(
-    Key={
-        'Type': 'AwsAccountInfo',
-        'Environment': 'dev'
-    }
-)
-item = response['Item']
-print(item)
+#response = table.get_item(
+    #Key={
+        #'Type': 'AwsAccountInfo',
+        #'Environment': 'dev'
+    #}
+#)
+#item = response['Item']
+#print(item)
 
