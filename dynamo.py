@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-import boto3
+import boto
 
 #from boto3.session import Session
 
@@ -10,7 +10,7 @@ import boto3
 #session = Session(region_name='us-west-2')
 
 
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto.resource('dynamodb')
 
 
 table = dynamodb.Table('MapiSettings')
