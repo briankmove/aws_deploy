@@ -5,6 +5,14 @@ import boto.dynamodb
 
 conn = boto.dynamodb.connect_to_region('us-west-2')
 
+table = conn.get_table('MapiSettings')
+
+item = table.get_item(
+        hash_key='AwsAccountInfo',
+        range_key='dev'
+    )
+print(item)
+
 #from boto3.session import Session
 
 # Get the service resource.
