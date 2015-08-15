@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 
 
-#import boto3
+import boto
 
-from boto.session import Session
+#from boto.session import Session
 
 # Get the service resource.
 
-session = Session(region_name='us-west-2')
+#session = Session(region_name='us-west-2')
 
 
-dynamodb = session.resource('dynamodb')
+dynamodb = boto.resource('dynamodb')
 
 
 table = dynamodb.Table('MapiSettings')
