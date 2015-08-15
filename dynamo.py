@@ -10,7 +10,7 @@ from boto3.session import Session
 session = Session(region_name='us-west-2')
 
 
-#dynamodb = boto3.resource('dynamodb')
+dynamodb = session.resource('dynamodb')
 
 
 #table = dynamodb.Table('MapiSettings')
