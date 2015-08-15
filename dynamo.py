@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-from boto.dynamodb2.table import Table
+#from boto.dynamodb2.table import Table
 
-items = Table('MapiSettings')
+#items = Table('MapiSettings')
 
-item = items.get_item(Type='AwsAccountInfo', Environment='dev')
+#item = items.get_item(Type='AwsAccountInfo', Environment='dev')
 
-print(item)
+#print(item)
 
 #import boto.dynamodb
 
@@ -26,11 +26,11 @@ print(item)
 
 #session = Session(region_name='us-west-2')
 
+import boto3
 
+dynamodb = boto3.resource('dynamodb')
 
-#dynamodb = boto.resource('dynamodb')
-
-#table = dynamodb.Table('MapiSettings')
+table = dynamodb.Table('MapiSettings')
 
 
 #response = table.get_item(
