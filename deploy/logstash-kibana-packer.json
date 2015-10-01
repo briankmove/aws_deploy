@@ -1,6 +1,6 @@
 {
   "variables": {
-    "BASEAMI": "ami-53bdbe63",
+    "BASEAMI": "ami-49d0cd79",
     "VPCID": "vpc-5d9e2c38",
     "SUBNETID": "subnet-d26ee5b7",
     "ENVIRONMENT": "dev",

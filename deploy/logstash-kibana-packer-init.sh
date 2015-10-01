@@ -20,13 +20,13 @@ chown -R centos /home/centos
 
 cp cloudwatch-logs.ini /etc
 
-#cd ~
-#if [ -f awslogs-agent-setup.py ]; then
-#    rm awslogs-agent-setup.py
-#fi
-#wget https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
-#chmod +x ./awslogs-agent-setup.py
-#sudo ./awslogs-agent-setup.py -n -r us-west-2 -c /etc/cloudwatch-logs.ini
+cd ~
+if [ -f awslogs-agent-setup.py ]; then
+    rm awslogs-agent-setup.py
+fi
+wget https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
+chmod +x ./awslogs-agent-setup.py
+sudo ./awslogs-agent-setup.py -n -r us-west-2 -c /etc/cloudwatch-logs.ini
 
 
 if [ -f /home/centos/aws.config ]; then
