@@ -53,6 +53,8 @@ aws ec2 authorize-security-group-ingress --region us-west-2 --group-id ${SG_GROU
 
 cd deploy
 
+aws s3 cp --region ${REGION} s3://moverdc-mapi-config/mapi-environment.sh .
+
 cat <<HERE  > aws.config
 export AWS_ENVIRONMENT=${Environment}
 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
