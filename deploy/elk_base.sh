@@ -69,7 +69,7 @@ aws s3 cp --region ${REGION} s3://moverdc-mapi-config/logstash-forwarder-dev.key
 ####################
 # Build The Image
 ####################
-echo "packer build -var 'BASEAMI=${BASE_AMI_ID}' -var 'VPCID=${VPCID}' -var 'SUBNETID=${SUBNETID}' ${WORKSPACE}/Mobile-API/deploy/node-packer.json 2>&1 | tee output.txt"
+echo "packer build -var 'BASEAMI=${BASE_AMI_ID}' -var 'VPCID=${VPCID}' -var 'SUBNETID=${SUBNETID}' ${WORKSPACE}/deploy/logstash-kibana-packer.json 2>&1 | tee output.txt"
 packer build -color=false \
   -var "BASEAMI=${BASE_AMI_ID}" \
   -var "VPCID=${VPCID}" \

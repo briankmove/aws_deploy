@@ -48,13 +48,16 @@ cd /opt/
 sudo su <<HERE
 wget https://download.elastic.co/kibana/kibana/kibana-4.0.1-linux-x64.tar.gz
 
+echo 'untar kibana'
 tar xvf kibana-*.tar.gz
 
+echo "rename kibana directory"
 mv kibana-*-linux-x64 kibana
 
+echo 'changing host name'
 sed -i 's/host: "0.0.0.0"/host: "localhost"/g' /opt/kibana/config/kibana.yml
 
-echo 'adding kibana service to systemd'
+echo "adding kibana service to systemd"
 cat >> /etc/systemd/system/kibana4.service << KIBANA
 [Service]
 ExecStart=/opt/kibana/bin/kibana
