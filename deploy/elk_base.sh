@@ -50,6 +50,9 @@ export SG_GROUP_ID_TEMPSSH=`grep GroupId sg_create_output.txt | cut -d":" -f 2 |
 # Add ingress rule to SG
 aws ec2 authorize-security-group-ingress --region us-west-2 --group-id ${SG_GROUP_ID_TEMPSSH} --protocol tcp --port 22 --cidr ${JENKINS_SLAVE_IP}/32
 
+
+cd deploy
+
 cat <<HERE  > aws.config
 export AWS_ENVIRONMENT=${Environment}
 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
