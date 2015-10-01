@@ -48,7 +48,7 @@ cd /opt/
 sudo wget https://download.elastic.co/kibana/kibana/kibana-4.0.1-linux-x64.tar.gz
 
 echo 'untar kibana'
-sudo tar xvf kibana-*.tar.gz
+sudo tar xf kibana-*.tar.gz
 
 echo "rename kibana directory"
 sudo mv kibana-*-linux-x64 kibana
