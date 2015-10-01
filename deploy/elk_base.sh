@@ -85,7 +85,7 @@ if [ -z "${ERROUT}" ]; then
 else
   echo "${ERROUT}: build failed\n"
   exit 1
-
+fi
 
 
 
