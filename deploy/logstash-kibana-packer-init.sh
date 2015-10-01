@@ -28,7 +28,6 @@ cp cloudwatch-logs.ini /etc
 #chmod +x ./awslogs-agent-setup.py
 #sudo ./awslogs-agent-setup.py -n -r us-west-2 -c /etc/cloudwatch-logs.ini
 
-sudo su <<HERE
 
 if [ -f /home/centos/aws.config ]; then
     rm /home/centos/aws.config
