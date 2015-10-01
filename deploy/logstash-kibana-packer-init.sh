@@ -5,8 +5,8 @@ set -e
 sudo su <<HERE
 
 # Setup our environment
-chmod +x /home/centos/mapi-environment.sh
-source /home/centos/mapi-environment.sh
+#chmod +x /home/centos/mapi-environment.sh
+#source /home/centos/mapi-environment.sh
 
 ## Install needed packages
 export PATH=$PATH:/usr/local/bin:/sbin
