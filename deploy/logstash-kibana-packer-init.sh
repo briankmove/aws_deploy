@@ -42,6 +42,7 @@ sudo useradd -u 415 -s /sbin/nologin -m -d /var/lib/nginx -c 'Nginx web server' 
 
 cd /opt/
 
+sudo su <<HERE
 wget https://download.elastic.co/kibana/kibana/kibana-4.0.1-linux-x64.tar.gz
 
 tar xvf kibana-*.tar.gz
@@ -50,8 +51,7 @@ mv kibana-*-linux-x64 kibana
 
 sed -i 's/host: "0.0.0.0"/host: "localhost"/g' /opt/kibana/config/kibana.yml
 
-echo 'adding yum repo'
-sudo su <<HERE
+echo 'adding kibana service to systemd'
 cat >> /etc/systemd/system/kibana4.service << KIBANA
 [Service]
 ExecStart=/opt/kibana/bin/kibana
@@ -67,9 +67,9 @@ Environment=NODE_ENV=production
 WantedBy=multi-user.target
 KIBANA
 
-HERE
-
 systemctl enable kibana4
+
+HERE
 
 ####################################
 # End : Install Kibana
