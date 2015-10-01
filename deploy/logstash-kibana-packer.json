@@ -44,6 +44,11 @@
     },
     {
       "type": "file",
+      "source": "logstash-forwarder-dev.key",
+      "destination": "~/logstash-forwarder-dev.key"
+    },
+    {
+      "type": "file",
       "source": "aws.config",
       "destination": "~/aws.config"
     },

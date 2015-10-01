@@ -61,6 +61,7 @@ export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
 HERE
 
 aws s3 cp --region ${REGION} s3://moverdc-mapi-config/logstash-forwarder-dev.crt .
+aws s3 cp --region ${REGION} s3://moverdc-mapi-config/logstash-forwarder-dev.key .
 
 
 ####################
@@ -91,5 +92,11 @@ else
   exit 1
 fi
 
+#get the ami id
+export AMI_ID=`tail -2 output.txt | head -2 | awk 'match($0, /ami-.*/) { print substr($0, RSTART, RLENGTH) }'`
+
+cd ${WORKSPACE}
+
+echo "...ID: ${AMI_ID}"
 
 
