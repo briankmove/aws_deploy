@@ -1,0 +1,55 @@
+{
+  "variables": {
+    "BASEAMI": "ami-53bdbe63",
+    "VPCID": "vpc-5d9e2c38",
+    "SUBNETID": "subnet-d26ee5b7",
+    "ENVIRONMENT": "dev",
+    "AWS_SECRET_ACCESS_KEY": "",
+    "AWS_SECURITY_TOKEN": "",
+    "AWS_ACCESS_KEY_ID": "",
+    "SG_GROUP_ID_TEMPSSH": ""
+  },
+  "builders": [{
+    "access_key": "{{user `AWS_ACCESS_KEY_ID`}}",
+    "secret_key": "{{user `AWS_SECRET_ACCESS_KEY`}}",
+    "token": "{{user `AWS_SECURITY_TOKEN`}}",
+    "type": "amazon-ebs",
+    "region": "us-west-2",
+    "source_ami": "{{user `BASEAMI`}}",
+    "instance_type": "t2.micro",
+    "ami_name": "mapi-logstash-kibana-base-{{timestamp}}",
+    "associate_public_ip_address": "false",
+    "vpc_id": "{{user `VPCID`}}",
+    "subnet_id": "{{user `SUBNETID`}}",
+    "security_group_id": "{{user `SG_GROUP_ID_TEMPSSH`}}",
+    "tags": {
+      "env": "{{user `ENVIRONMENT`}}",
+      "service": "mAPI-Logstash-Kibana",
+      "mapi_instance_type": "mapi_logstash_kibana_base_new"
+    },
+    "communicator": "ssh",
+    "ssh_username": "centos",
+    "ssh_pty" : true
+  }],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "cloudwatch-logs.ini",
+      "destination": "~/cloudwatch-logs.ini"
+    },
+    {
+      "type": "file",
+      "source": "logstash-forwarder-dev.crt",
+      "destination": "~/logstash-forwarder-dev.crt"
+    },
+    {
+      "type": "file",
+      "source": "aws.config",
+      "destination": "~/aws.config"
+    },
+    {
+      "type": "shell",
+      "script": "logstash-kibana-packer-init.sh"
+    }
+  ]
+}
