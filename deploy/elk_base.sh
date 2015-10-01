@@ -60,6 +60,7 @@ export AWS_SECURITY_TOKEN=${AWS_SECURITY_TOKEN}
 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
 HERE
 
+aws s3 cp --region ${REGION} s3://moverdc-mapi-config/logstash-forwarder-dev.crt .
 
 
 ####################
