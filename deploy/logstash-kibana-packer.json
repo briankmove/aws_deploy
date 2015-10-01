@@ -39,6 +39,11 @@
     },
     {
       "type": "file",
+      "source": "mapi-environment.sh",
+      "destination": "~/mapi-environment.sh"
+    },
+    {
+      "type": "file",
       "source": "logstash-forwarder-dev.crt",
       "destination": "~/logstash-forwarder-dev.crt"
     },
